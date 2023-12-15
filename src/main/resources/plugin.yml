@@ -1,0 +1,4 @@
+name: UndefinedLib
+version: '${project.version}'
+main: com.redmagic.undefinedlib.UndefinedLib
+api-version: '1.20'
