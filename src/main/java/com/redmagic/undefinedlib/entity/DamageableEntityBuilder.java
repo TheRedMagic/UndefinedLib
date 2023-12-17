@@ -45,44 +45,51 @@ public class DamageableEntityBuilder extends LivingEntityBuilder{
     }
 
     @Override
-    public LivingEntityBuilder setPotionEffects(Collection<PotionEffect> effects) {
+    public DamageableEntityBuilder setPotionEffects(Collection<PotionEffect> effects) {
         super.setPotionEffects(effects);
         return this;
     }
 
     @Override
-    public LivingEntityBuilder setAi(boolean ai) {
-        return super.setAi(ai);
+    public DamageableEntityBuilder setAi(boolean ai) {
+        super.setAi(ai);
+        return this;
     }
 
     @Override
-    public LivingEntityBuilder canPickUpItems(boolean pickItems) {
-        return super.canPickUpItems(pickItems);
+    public DamageableEntityBuilder canPickUpItems(boolean pickItems) {
+        super.canPickUpItems(pickItems);
+        return this;
     }
 
     @Override
-    public LivingEntityBuilder setCollectable(boolean collectable) {
-        return super.setCollectable(collectable);
+    public DamageableEntityBuilder setCollectable(boolean collectable) {
+        super.setCollectable(collectable);
+        return this;
     }
 
     @Override
-    public LivingEntityBuilder setGliding(boolean gliding) {
-        return super.setGliding(gliding);
+    public DamageableEntityBuilder setGliding(boolean gliding) {
+        super.setGliding(gliding);
+        return this;
     }
 
     @Override
-    public LivingEntityBuilder setInvisible(boolean invisible) {
-        return super.setInvisible(invisible);
+    public DamageableEntityBuilder setInvisible(boolean invisible) {
+        super.setInvisible(invisible);
+        return this;
     }
 
     @Override
-    public LivingEntityBuilder setLeashHolder(Entity entity) {
-        return super.setLeashHolder(entity);
+    public DamageableEntityBuilder setLeashHolder(Entity entity) {
+        super.setLeashHolder(entity);
+        return this;
     }
 
     @Override
-    public LivingEntityBuilder setSwimming(boolean swimming) {
-        return super.setSwimming(swimming);
+    public DamageableEntityBuilder setSwimming(boolean swimming) {
+        super.setSwimming(swimming);
+        return this;
     }
 
     @Override

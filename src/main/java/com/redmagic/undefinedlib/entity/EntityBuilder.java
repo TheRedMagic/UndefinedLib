@@ -2,9 +2,14 @@ package com.redmagic.undefinedlib.entity;
 
 import com.redmagic.undefinedlib.async.EntitySpawnWorkLoad;
 import lombok.Builder;
+import org.bukkit.Color;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.*;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.util.Transformation;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -67,6 +72,25 @@ public class EntityBuilder {
     protected boolean isInvisible = false;
     protected Entity setLeashHolder = null;
     protected boolean isSwimming = false;
+
+    //Display Entity
+    protected Display.Billboard billboard = Display.Billboard.CENTER;
+    protected Display.Brightness brightness = new Display.Brightness(7, 7);
+    protected float height = 0;
+    protected float width = 0;
+    protected Color glowColor = null;
+    protected float shadowRadius = 1;
+    protected float shadowStrength = 1;
+    protected Transformation transformation = null;
+    protected float viewRange = 8;
+    protected double scale = 1.0;
+
+    //BlockDisplay
+    protected BlockData blockData;
+
+    //ItemDisplay
+    protected ItemStack itemStack;
+    protected ItemDisplay.ItemDisplayTransform itemDisplayTransform = ItemDisplay.ItemDisplayTransform.NONE;
 
     public EntityBuilder(EntityType entityType){
         this.entityType = entityType;
@@ -179,6 +203,41 @@ public class EntityBuilder {
             livingEntity.setInvisible(isInvisible);
             if (setLeashHolder != null) livingEntity.setLeashHolder(setLeashHolder);
             livingEntity.setSwimming(isSwimming);
+        }
+
+        if (entity instanceof Display display){
+
+            display.setBillboard(billboard);
+            display.setBrightness(brightness);
+            if (height > 0) display.setDisplayHeight(height);
+            if (width > 0) display.setDisplayWidth(width);
+            if (glowColor != null) display.setGlowColorOverride(glowColor);
+            display.setShadowRadius(shadowRadius);
+            display.setShadowStrength(shadowStrength);
+            if (transformation != null) display.setTransformation(transformation);
+            display.setViewRange(viewRange);
+            if (scale > 0.0 && scale != 1.0){
+                display.getTransformation().getTranslation().set(scale);
+            }
+        }
+
+        if (entity.getType() == EntityType.BLOCK_DISPLAY){
+            BlockDisplay blockDisplay = (BlockDisplay) entity;
+            if (blockData != null){
+                blockDisplay.setBlock(blockData);
+            }else {
+                blockDisplay.setBlock(Material.STONE.createBlockData());
+            }
+        }
+
+        if (entity.getType() == EntityType.ITEM_DISPLAY){
+            ItemDisplay itemDisplay = (ItemDisplay) entity;
+            if (itemStack != null){
+                itemDisplay.setItemStack(itemStack);
+            }else {
+                itemDisplay.setItemStack(new ItemStack(Material.STONE));
+            }
+            itemDisplay.setItemDisplayTransform(itemDisplayTransform);
         }
 
         return entity;

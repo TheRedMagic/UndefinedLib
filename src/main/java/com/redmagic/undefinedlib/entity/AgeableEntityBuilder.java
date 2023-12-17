@@ -3,7 +3,10 @@ package com.redmagic.undefinedlib.entity;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
+import java.util.Collection;
 import java.util.List;
 
 public class AgeableEntityBuilder extends MobBuilder {
@@ -26,6 +29,66 @@ public class AgeableEntityBuilder extends MobBuilder {
 
     public AgeableEntityBuilder setBreed(boolean breed){
         this.breed = breed;
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder addPotionEffect(PotionEffect effect) {
+        super.addPotionEffect(effect);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder addPotionEffect(PotionEffectType type, int ticks, int amp) {
+        super.addPotionEffect(type, ticks, amp);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setPotionEffects(Collection<PotionEffect> effects) {
+        super.setPotionEffects(effects);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setAi(boolean ai) {
+        super.setAi(ai);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder canPickUpItems(boolean pickItems) {
+        super.canPickUpItems(pickItems);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setCollectable(boolean collectable) {
+        super.setCollectable(collectable);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setGliding(boolean gliding) {
+        super.setGliding(gliding);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setInvisible(boolean invisible) {
+        super.setInvisible(invisible);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setLeashHolder(Entity entity) {
+        super.setLeashHolder(entity);
+        return this;
+    }
+
+    @Override
+    public AgeableEntityBuilder setSwimming(boolean swimming) {
+        super.setSwimming(swimming);
         return this;
     }
 

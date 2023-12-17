@@ -4,7 +4,10 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
+import java.util.Collection;
 import java.util.List;
 
 public class MobBuilder extends DamageableEntityBuilder{
@@ -22,6 +25,67 @@ public class MobBuilder extends DamageableEntityBuilder{
 
     public MobBuilder setTarget(LivingEntity livingEntity){
         this.target = livingEntity;
+        return this;
+    }
+
+
+    @Override
+    public MobBuilder addPotionEffect(PotionEffect effect) {
+        super.addPotionEffect(effect);
+        return this;
+    }
+
+    @Override
+    public MobBuilder addPotionEffect(PotionEffectType type, int ticks, int amp) {
+        super.addPotionEffect(type, ticks, amp);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setPotionEffects(Collection<PotionEffect> effects) {
+        super.setPotionEffects(effects);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setAi(boolean ai) {
+        super.setAi(ai);
+        return this;
+    }
+
+    @Override
+    public MobBuilder canPickUpItems(boolean pickItems) {
+        super.canPickUpItems(pickItems);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setCollectable(boolean collectable) {
+        super.setCollectable(collectable);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setGliding(boolean gliding) {
+        super.setGliding(gliding);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setInvisible(boolean invisible) {
+        super.setInvisible(invisible);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setLeashHolder(Entity entity) {
+        super.setLeashHolder(entity);
+        return this;
+    }
+
+    @Override
+    public MobBuilder setSwimming(boolean swimming) {
+        super.setSwimming(swimming);
         return this;
     }
 
